@@ -99,6 +99,9 @@ type Components struct {
 
 	// LlamaStack Operator component configuration.
 	LlamaStackOperator componentApi.DSCLlamaStackOperator `json:"llamastackoperator,omitempty"`
+
+	// ToolHiveOperator component configuration.
+	ToolHiveOperator componentApi.DSCToolHiveOperator `json:"toolhiveoperator,omitempty"`
 }
 
 // ComponentsStatus defines the custom status of DataScienceCluster components.
@@ -141,6 +144,9 @@ type ComponentsStatus struct {
 
 	// LlamaStack Operator component status.
 	LlamaStackOperator componentApi.DSCLlamaStackOperatorStatus `json:"llamastackoperator,omitempty"`
+
+	// ToolHiveOperator component status.
+	ToolHiveOperator componentApi.DSCToolHiveOperatorStatus `json:"toolhiveoperator,omitempty"`
 }
 
 // DataScienceClusterStatus defines the observed state of DataScienceCluster.

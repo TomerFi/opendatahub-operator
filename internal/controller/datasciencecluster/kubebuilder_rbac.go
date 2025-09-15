@@ -310,3 +310,8 @@ package datasciencecluster
 // +kubebuilder:rbac:groups=components.platform.opendatahub.io,resources=modelsasservices/finalizers,verbs=update
 // +kubebuilder:rbac:groups=kuadrant.io,resources=authpolicies;tokenratelimitpolicies;ratelimitpolicies;telemetrypolicies,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=extensions.kuadrant.io,resources=telemetrypolicies,verbs=get;list;watch;create;update;patch;delete
+
+// ToolHiveOperator
+// +kubebuilder:rbac:groups=components.platform.opendatahub.io,resources=toolhiveoperators,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=components.platform.opendatahub.io,resources=toolhiveoperators/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=components.platform.opendatahub.io,resources=toolhiveoperators/finalizers,verbs=update
