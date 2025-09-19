@@ -27,6 +27,7 @@ if [ "${ODH_PLATFORM_TYPE:-OpenDataHub}" = "OpenDataHub" ]; then
         ["modelcontroller"]="opendatahub-io:odh-model-controller:incubating@4859b3de43e0c1ed812dc1451323269f9b44c3e2:config"
         ["feastoperator"]="opendatahub-io:feast:stable@3c6fd777b7d5c9de4f7949ee7b9ee7f829dc8528:infra/feast-operator/config"
         ["llamastackoperator"]="opendatahub-io:llama-stack-k8s-operator:odh@226e911cca9bf7efa1e632860613087b0bf14d74:config"
+        ["toolhiveoperator"]="RHEcosystemAppEng:toolhive-operator:main:config"
     )
 else
     echo "Cloning manifests for RHOAI"
@@ -51,6 +52,7 @@ else
         ["modelcontroller"]="red-hat-data-services:odh-model-controller:rhoai-3.0:config"
         ["feastoperator"]="red-hat-data-services:feast:rhoai-3.0:infra/feast-operator/config"
         ["llamastackoperator"]="red-hat-data-services:llama-stack-k8s-operator:rhoai-3.0:config"
+        ["toolhiveoperator"]="RHEcosystemAppEng:toolhive-operator:main:config"
     )
 fi
 
