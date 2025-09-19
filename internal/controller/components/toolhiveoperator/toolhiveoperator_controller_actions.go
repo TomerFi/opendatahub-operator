@@ -14,13 +14,6 @@ func initialize(_ context.Context, rr *odhtypes.ReconciliationRequest) error {
 	return nil
 }
 
-func loadParams(ctx context.Context, rr *odhtypes.ReconciliationRequest) error {
-	if err := odhdeploy.ApplyParams(paramsPath, "params.env", nil, map[string]string{"namespace": rr.DSCI.Spec.ApplicationsNamespace}); err != nil {
-		return fmt.Errorf("failed to update params.env from %s : %w", paramsPath, err)
-	}
-	return nil
-}
-
 func devFlags(ctx context.Context, rr *odhtypes.ReconciliationRequest) error {
 	toolhiveoperator, ok := rr.Instance.(*componentApi.ToolHiveOperator)
 	if !ok {

@@ -17,6 +17,7 @@ import (
 	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/status"
 	"github.com/opendatahub-io/opendatahub-operator/v2/pkg/controller/conditions"
 	"github.com/opendatahub-io/opendatahub-operator/v2/pkg/controller/types"
+	odhdeploy "github.com/opendatahub-io/opendatahub-operator/v2/pkg/deploy"
 	"github.com/opendatahub-io/opendatahub-operator/v2/pkg/metadata/annotations"
 )
 
@@ -60,7 +61,10 @@ func (s *componentHandler) NewCRObject(dsc *dscv1.DataScienceCluster) common.Pla
 }
 
 func (s *componentHandler) Init(_ common.Platform) error {
-	// TODO: Populate code with logic below.
+	if err := odhdeploy.ApplyParams(paramsPath, "params.env", imageParamMap); err != nil {
+		return fmt.Errorf("failed to update images on path %s: %w", paramsPath, err)
+	}
+
 	return nil
 }
 

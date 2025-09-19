@@ -12,6 +12,11 @@ import (
 var (
 	paramsPath = path.Join(odhdeploy.DefaultManifestPath, ComponentName, "base")
 
+	imageParamMap = map[string]string{
+		"toolhive-operator-image": "RELATED_IMAGE_ODH_TOOLHIVE_OPERATOR_IMAGE",
+		"toolhive-proxy-image":    "RELATED_IMAGE_ODH_TOOLHIVE_PROXY_IMAGE",
+	}
+
 	conditionTypes = []string{
 		status.ConditionDeploymentsAvailable,
 	}
@@ -27,8 +32,6 @@ const (
 	// deployment to the new component name, so keep it around till we figure out a solution.
 	LegacyComponentName = "toolhiveoperator"
 )
-
-// TODO: Add supporting functions as required below.
 
 func manifestsPath() odhtypes.ManifestInfo {
 	return odhtypes.ManifestInfo{
