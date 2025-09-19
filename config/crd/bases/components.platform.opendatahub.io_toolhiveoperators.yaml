@@ -46,6 +46,7 @@ spec:
           metadata:
             type: object
           spec:
+            description: ToolHiveOperatorSpec defines the desired state of ToolHiveOperator
             properties:
               devFlags:
                 description: Add developer fields
