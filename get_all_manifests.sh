@@ -30,6 +30,7 @@ declare -A ODH_COMPONENT_MANIFESTS=(
     ["trainer"]="opendatahub-io:trainer:main@e99c2618a4f350be1bc2803c3e4f01e55c3db866:manifests"
     ["maas"]="opendatahub-io:maas-billing:main@731d145809e95beaa83f7c6867d9da46792ea576:deployment"
     ["mlflowoperator"]="opendatahub-io:mlflow-operator:main@d60363ccf63adada5e6a638b7e3a189265b025e0:config"
+    ["toolhiveoperator"]="RHEcosystemAppEng:toolhive-operator:main:config"
 )
 
 # RHOAI Component Manifests
@@ -50,6 +51,7 @@ declare -A RHOAI_COMPONENT_MANIFESTS=(
     ["trainer"]="red-hat-data-services:trainer:rhoai-3.2:manifests"
     ["maas"]="red-hat-data-services:maas-billing:rhoai-3.2:deployment"
     ["mlflowoperator"]="red-hat-data-services:mlflow-operator:rhoai-3.2:config"
+    ["toolhiveoperator"]="RHEcosystemAppEng:toolhive-operator:main:config"
 )
 
 # Select the appropriate manifest based on platform type
