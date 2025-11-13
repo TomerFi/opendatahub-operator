@@ -39,7 +39,6 @@ func (s *componentHandler) NewComponentReconciler(ctx context.Context, mgr ctrl.
 				component.ForLabel(labels.ODH.Component(ComponentName), labels.True)),
 		).
 		WithAction(initialize).
-		WithAction(devFlags).
 		WithAction(releases.NewAction()).
 		WithAction(kustomize.NewAction(
 			kustomize.WithLabel(labels.ODH.Component(ComponentName), labels.True),
