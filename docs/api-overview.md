@@ -2091,7 +2091,6 @@ _Appears in:_
 | `trainingoperator` _[DSCTrainingOperator](#dsctrainingoperator)_ | Training Operator component configuration. |  |  |
 | `feastoperator` _[DSCFeastOperator](#dscfeastoperator)_ | Feast Operator component configuration. |  |  |
 | `llamastackoperator` _[DSCLlamaStackOperator](#dscllamastackoperator)_ | LlamaStack Operator component configuration. |  |  |
-| `toolhiveoperator` _[DSCToolHiveOperator](#dsctoolhiveoperator)_ | ToolHiveOperator component configuration. |  |  |
 
 
 #### ComponentsStatus
@@ -2118,7 +2117,6 @@ _Appears in:_
 | `trainingoperator` _[DSCTrainingOperatorStatus](#dsctrainingoperatorstatus)_ | Training Operator component status. |  |  |
 | `feastoperator` _[DSCFeastOperatorStatus](#dscfeastoperatorstatus)_ | Feast Operator component status. |  |  |
 | `llamastackoperator` _[DSCLlamaStackOperatorStatus](#dscllamastackoperatorstatus)_ | LlamaStack Operator component status. |  |  |
-| `toolhiveoperator` _[DSCToolHiveOperatorStatus](#dsctoolhiveoperatorstatus)_ | ToolHiveOperator component status. |  |  |
 
 
 #### DSCKueueV1
@@ -2251,6 +2249,7 @@ _Appears in:_
 | `llamastackoperator` _[DSCLlamaStackOperator](#dscllamastackoperator)_ | LlamaStack Operator component configuration. |  |  |
 | `mlflowoperator` _[DSCMLflowOperator](#dscmlflowoperator)_ | MLflow Operator component configuration. |  |  |
 | `trainer` _[DSCTrainer](#dsctrainer)_ | Trainer component configuration. |  |  |
+| `toolhiveoperator` _[DSCToolHiveOperator](#dsctoolhiveoperator)_ | ToolHiveOperator component configuration. |  |  |
 
 
 #### ComponentsStatus
@@ -2279,6 +2278,7 @@ _Appears in:_
 | `llamastackoperator` _[DSCLlamaStackOperatorStatus](#dscllamastackoperatorstatus)_ | LlamaStack Operator component status. |  |  |
 | `mlflowoperator` _[DSCMLflowOperatorStatus](#dscmlflowoperatorstatus)_ | MLflow Operator component status. |  |  |
 | `trainer` _[DSCTrainerStatus](#dsctrainerstatus)_ | Trainer component status. |  |  |
+| `toolhiveoperator` _[DSCToolHiveOperatorStatus](#dsctoolhiveoperatorstatus)_ | ToolHiveOperator component status. |  |  |
 
 
 #### DataScienceCluster

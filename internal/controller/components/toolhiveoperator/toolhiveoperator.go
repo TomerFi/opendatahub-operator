@@ -12,7 +12,7 @@ import (
 
 	"github.com/opendatahub-io/opendatahub-operator/v2/api/common"
 	componentApi "github.com/opendatahub-io/opendatahub-operator/v2/api/components/v1alpha1"
-	dscv1 "github.com/opendatahub-io/opendatahub-operator/v2/api/datasciencecluster/v1"
+	dscv2 "github.com/opendatahub-io/opendatahub-operator/v2/api/datasciencecluster/v2"
 	cr "github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/components/registry"
 	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/status"
 	"github.com/opendatahub-io/opendatahub-operator/v2/pkg/controller/conditions"
@@ -31,18 +31,18 @@ func (s *componentHandler) GetName() string {
 	return componentApi.ToolHiveOperatorComponentName
 }
 
-func (s *componentHandler) GetManagementState(dsc *dscv1.DataScienceCluster) operatorv1.ManagementState {
+func (s *componentHandler) GetManagementState(dsc *dscv2.DataScienceCluster) operatorv1.ManagementState {
 	if dsc.Spec.Components.ToolHiveOperator.ManagementState == operatorv1.Managed {
 		return operatorv1.Managed
 	}
 	return operatorv1.Removed
 }
 
-func (s *componentHandler) IsEnabled(dsc *dscv1.DataScienceCluster) bool {
+func (s *componentHandler) IsEnabled(dsc *dscv2.DataScienceCluster) bool {
 	return dsc.Spec.Components.ToolHiveOperator.ManagementState == operatorv1.Managed
 }
 
-func (s *componentHandler) NewCRObject(dsc *dscv1.DataScienceCluster) common.PlatformObject {
+func (s *componentHandler) NewCRObject(dsc *dscv2.DataScienceCluster) common.PlatformObject {
 	return &componentApi.ToolHiveOperator{
 		TypeMeta: metav1.TypeMeta{
 			Kind:       componentApi.ToolHiveOperatorKind,
@@ -78,20 +78,17 @@ func (s *componentHandler) UpdateDSCStatus(ctx context.Context, rr *types.Reconc
 		return cs, nil
 	}
 
-	dsc, ok := rr.Instance.(*dscv1.DataScienceCluster)
+	dsc, ok := rr.Instance.(*dscv2.DataScienceCluster)
 	if !ok {
 		return cs, errors.New("failed to convert to DataScienceCluster")
 	}
 
-	dsc.Status.InstalledComponents[LegacyComponentName] = false
 	dsc.Status.Components.ToolHiveOperator.ManagementSpec.ManagementState = s.GetManagementState(dsc)
 	dsc.Status.Components.ToolHiveOperator.ToolHiveOperatorCommonStatus = nil
 
 	rr.Conditions.MarkFalse(ReadyConditionType)
 
-	switch s.GetManagementState(dsc) {
-	case operatorv1.Managed:
-		dsc.Status.InstalledComponents[LegacyComponentName] = true
+	if s.IsEnabled(dsc) {
 		dsc.Status.Components.ToolHiveOperator.ToolHiveOperatorCommonStatus = c.Status.ToolHiveOperatorCommonStatus.DeepCopy()
 
 		if rc := conditions.FindStatusCondition(c.GetStatus(), status.ConditionTypeReady); rc != nil {
@@ -100,17 +97,13 @@ func (s *componentHandler) UpdateDSCStatus(ctx context.Context, rr *types.Reconc
 		} else {
 			cs = metav1.ConditionFalse
 		}
-
-	case operatorv1.Removed:
+	} else {
 		rr.Conditions.MarkFalse(
 			ReadyConditionType,
 			conditions.WithReason(string(operatorv1.Removed)),
 			conditions.WithMessage("Component ManagementState is set to %s", operatorv1.Removed),
 			conditions.WithSeverity(common.ConditionSeverityInfo),
 		)
-
-	default:
-		return cs, fmt.Errorf("unknown state %s ", s.GetManagementState(dsc))
 	}
 
 	return cs, nil

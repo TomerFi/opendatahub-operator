@@ -69,6 +69,9 @@ type Components struct {
 
 	// Trainer component configuration.
 	Trainer componentApi.DSCTrainer `json:"trainer,omitempty"`
+
+	// ToolHiveOperator component configuration.
+	ToolHiveOperator componentApi.DSCToolHiveOperator `json:"toolhiveoperator,omitempty"`
 }
 
 // ComponentsStatus defines the custom status of DataScienceCluster components.
@@ -111,6 +114,9 @@ type ComponentsStatus struct {
 
 	// Trainer component status.
 	Trainer componentApi.DSCTrainerStatus `json:"trainer,omitempty"`
+
+	// ToolHiveOperator component status.
+	ToolHiveOperator componentApi.DSCToolHiveOperatorStatus `json:"toolhiveoperator,omitempty"`
 }
 
 // DataScienceClusterStatus defines the observed state of DataScienceCluster.
