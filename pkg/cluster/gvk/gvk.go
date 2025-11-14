@@ -582,4 +582,10 @@ var (
 		Version: "v1",
 		Kind:    "ValidatingAdmissionPolicyBinding",
 	}
+
+	ToolHiveOperator = schema.GroupVersionKind{
+		Group:   componentApi.GroupVersion.Group,
+		Version: componentApi.GroupVersion.Version,
+		Kind:    componentApi.ToolHiveOperatorKind,
+	}
 )
