@@ -83,7 +83,7 @@ func (s *componentHandler) UpdateDSCStatus(ctx context.Context, rr *types.Reconc
 		return cs, errors.New("failed to convert to DataScienceCluster")
 	}
 
-	dsc.Status.Components.ToolHiveOperator.ManagementSpec.ManagementState = s.GetManagementState(dsc)
+	dsc.Status.Components.ToolHiveOperator.ManagementState = s.GetManagementState(dsc)
 	dsc.Status.Components.ToolHiveOperator.ToolHiveOperatorCommonStatus = nil
 
 	rr.Conditions.MarkFalse(ReadyConditionType)

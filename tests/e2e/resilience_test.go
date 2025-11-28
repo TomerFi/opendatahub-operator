@@ -142,7 +142,8 @@ func (tc *OperatorResilienceTestCtx) ValidateComponentsDeploymentFailure(t *test
 		componentApi.TrainingOperatorComponentName:     "kubeflow-training-operator",
 		componentApi.TrainerComponentName:              "trainer-controller-manager",
 		// componentApi.TrustyAIComponentName:             "trustyai-service-operator-controller-manager",
-		componentApi.WorkbenchesComponentName: "notebook-controller-manager",
+		componentApi.WorkbenchesComponentName:      "notebook-controller-manager",
+		componentApi.ToolHiveOperatorComponentName: "toolhive-operator-controller-manager",
 	}
 
 	// Error message includes components + internal components name

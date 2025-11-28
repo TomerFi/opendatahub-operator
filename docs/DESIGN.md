@@ -84,6 +84,7 @@ List of currently integrated ODH components:
 | Training Operator | `TrainingOperator` |
 | TrustyAI | `TrustyAI` |
 | Workbenches (IDEs) | `Workbenches` |
+| ToolHive | `ToolHiveOperator` |
 
 
 Component reconciliation refactor introduced a generic component reconciler builder and a CLI tool for generating the necessary files, making it easier to integrate new components in the future.
@@ -159,6 +160,8 @@ spec:
       managementState: Removed
     mlflowoperator:
       managementState: Removed
+    toolhiveoperator:
+      managementState: Managed
 ```
 
 2. Enable only Dashboard and Workbenches(Jupyter Notebooks) in DataScienceCluster

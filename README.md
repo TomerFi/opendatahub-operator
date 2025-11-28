@@ -85,6 +85,7 @@ The following components are **automatically integrated** by the ODH operator ba
 | **Dashboard** | [opendatahub-io/odh-dashboard](https://github.com/opendatahub-io/odh-dashboard) | Web UI for ODH management | Optional |
 | **Workbenches** | [opendatahub-io/notebooks](https://github.com/opendatahub-io/notebooks) | Jupyter notebook environments | Optional |
 | **AI Pipelines** | [opendatahub-io/data-science-pipelines-operator](https://github.com/opendatahub-io/data-science-pipelines-operator) | ML pipeline orchestration | Optional |
+| **ToolHive Operator** | [RHEcosystemAppEng/toolhive-operator](https://github.com/RHEcosystemAppEng/toolhive-operator) | ToolHive Opeartor and APIs | Optional |
 
 **Note**: These component controller do **not** need to be installed separately.
 
@@ -514,6 +515,8 @@ spec:
       managementState: Managed
     llamastackoperator:
       managementState: Removed
+    toolhiveoperator:
+      managementState: Managed
 ```
 
 2. Enable only Dashboard and Workbenches

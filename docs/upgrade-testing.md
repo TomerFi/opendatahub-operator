@@ -145,6 +145,8 @@ spec:
       managementState: Managed
     mlflowoperator:
       managementState: Managed
-      
+    toolhiveoperator:
+      managementState: Managed
+
 EOF
 ```

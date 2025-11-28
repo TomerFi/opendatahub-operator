@@ -133,6 +133,7 @@ var (
 				componentApi.FeastOperatorComponentName:        feastOperatorTestSuite,
 				componentApi.LlamaStackOperatorComponentName:   llamastackOperatorTestSuite,
 				componentApi.MLflowOperatorComponentName:       mlflowOperatorTestSuite,
+				componentApi.ToolHiveOperatorComponentName:     toolhiveOperatorTestSuite,
 			},
 			{
 				// Kueue tests depends on Workbenches, so must not run with Workbenches tests in parallel
